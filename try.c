@@ -5,16 +5,21 @@ int main(){
     int a = 10;
     int *p = &a;
     int **q = &p;
-    printf("value of a is %d\n", a);
-    printf("value of a is %d\n", *p);
-    printf("value of a is %d\n", **q);
-    printf("the address of a is %u\n", &a);
-    printf("the address of a is %u\n", p);
-    printf("the address of a is %u\n", *q);
-    printf("the address of a is %p\n", *q);
+    // printf("value of a is %d\n", a);
+    // printf("value of a is %d\n", *p);
+    // printf("value of a is %d\n", **q);
+    // printf("the address of a is %u\n", &a);
+    // printf("the address of a is %u\n", p);
+    // printf("the address of a is %u\n", *q);
+    // printf("the address of a is %p\n", *q);
 
 
-    sum(1,3);
+    // sum(1,3);
+    int i = 0;
+    while(i<5){
+        i++;
+    }
+    printf("%d",i);
     return 0;
 }
 void sum(int a , int b){

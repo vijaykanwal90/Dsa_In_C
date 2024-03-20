@@ -46,17 +46,12 @@ void addNode(node_type **left, node_type **right)
                 {
                     if (p->data < temp->data)
                     {
-                printf("%d", temp->data);
-
                         (temp->prev)->next = p;
                         p->next = temp;
                         p->prev = temp->prev;
-
                         temp->prev = p;
-
                         break;
                     }
-
                     temp = temp->next;
                 }
             }
@@ -67,11 +62,9 @@ void addNode(node_type **left, node_type **right)
         printf("not enough memory\n");
     }
 }
-void pringInAscendingOrder(node_type *left)
-{
+void pringInAscendingOrder(node_type *left){
     node_type *temp = left;
-    while (temp != NULL)
-    {
+    while (temp != NULL){
         printf("%d ", temp->data);
         temp = temp->next;
     }
@@ -80,8 +73,7 @@ void pringInAscendingOrder(node_type *left)
 void pringInDescendingOrder(node_type *right)
 {
     node_type *temp = right;
-    while (temp != NULL)
-    {
+    while (temp != NULL) {
         printf("%d ", temp->data);
         temp = temp->prev;
     }
@@ -110,7 +102,6 @@ int main()
             break;
         case 3:
             pringInDescendingOrder(right);
-
             break;
         case 4:
             printf("exit successfully\n");
@@ -119,7 +110,8 @@ int main()
             break;
         }
 
-    } while (option != 4);
+    }
+     while (option != 4);
 
     return 0;
 }

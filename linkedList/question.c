@@ -14,7 +14,7 @@ void displayNodes(node_type *left)
     printf("displaying node\n");
     while (temp != NULL)
     {
-        printf("%d\n", temp->data);
+        printf("%d ", temp->data);
         temp = temp->next;
     }
     free(temp);
