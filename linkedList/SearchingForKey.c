@@ -7,70 +7,92 @@ typedef struct Node
     struct Node *next;
 
 } node_type;
-void insert(node_type **left , node_type **right){
+void insert(node_type **left, node_type **right)
+{
     node_type *p;
-     p = (node_type *)malloc(sizeof(node_type));
-            if (p == NULL)
+    p = (node_type *)malloc(sizeof(node_type));
+    if (p == NULL)
+    {
+        printf("space is not empty\n");
+    }
+    else
+    {
+        int value;
+        printf("enter the data\n");
+        scanf("%d", &value);
+        p->data = value;
+        p->next = NULL;
+        if (*right == NULL)
+        {
+
+            (*left) = p;
+            (*right) = p;
+        }
+        else
+        {
+
+            (*right)->next = p;
+            *right = p;
+        }
+    }
+}
+void search(node_type **left, node_type **right)
+{
+    node_type *temp = (*left);
+
+    printf("enter the key\n");
+    int key;
+    scanf("%d", &key);
+    if (*left == NULL)
+    {
+        printf("no element is there\n");
+    }
+    else
+    {
+        node_type *temp = (*left);
+        node_type *prev;
+
+        while (temp != NULL && (temp->data != key))
+        {
+            prev = temp;
+            temp = temp->next;
+        }
+
+        if (temp == NULL)
+        {
+            printf("element not found\n");
+        }
+        else
+        {
+
+            if (temp == (*left))
             {
-                printf("space is not empty\n");
-            }
-            else
-            {
-                int value;
-                printf("enter the data\n");
-                scanf("%d", &value);
-                p->data = value;
-                p->next = NULL;
-                if (*right == NULL)
+                if ((*left)->next == NULL)
                 {
-                    // first node
-                    (*left) = p;
-                    (*right) = p;
+                    (*right) = NULL;
+                    (*left) = NULL;
                 }
                 else
                 {
+                    (*left) = temp->next;
+                    free(temp);
 
-                    (*right)->next = p;
-                    *right = p;
                 }
             }
+            else if ((temp->next == NULL))
+            {
 
-}
-void search(node_type **left , node_type **right){
-    node_type * temp = (*left);
+                prev->next = NULL;
+                (*right) = prev;
+                free(temp);
+            }
+            else
+            {
 
-    
-    printf("enter the key\n");
-    int key;
-    scanf("%d",&key);
-    node_type * temp = (*left);
-    if(*left==NULL){
-        printf("no element is there\n")
-    }
-    
-    while(temp!=NULL && (temp->next)->data !=key){
-        // printf("%d",temp->data);
-        temp = temp->next;
-    }
-
-if(temp==NULL){
-        printf("element not found\n");
-    }
-    else {
-        // here check for three conditions
-        if((*left)->next==NULL){
-            // means only one element is there
-            (*left)==NULL;
+                prev->next = temp->next;
+                free(temp);
+            }
         }
-        else {
-            (*left) = (*left)->next;
-    }
-    else if((temp->next)-next == NULL){
-        // key found at the last index or the node
-
-            (*left)
-
-    }
     }
 }
 void displayNodes(node_type *left)
@@ -82,7 +104,6 @@ void displayNodes(node_type *left)
         printf("%d ", temp->data);
         temp = temp->next;
     }
-    // free(temp);
 }
 int main()
 {
@@ -105,10 +126,10 @@ int main()
         switch (input)
         {
         case 1:
-            insert(&left,&right);
+            insert(&left, &right);
             break;
         case 2:
-            delete (&left,&right);
+            search(&left, &right);
 
             break;
 

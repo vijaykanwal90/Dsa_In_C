@@ -1,10 +1,10 @@
 #include <stdio.h>
-#define array_size 100
+#define array_size 3
 
 void push(int arr[], int *top)
 {
 
-    if (*top == (array_size))
+    if (*top == (array_size-1))
     {
         printf("array is full element can't be pushed");
     }

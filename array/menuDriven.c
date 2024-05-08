@@ -6,39 +6,13 @@ void inputArray(int arr[] , int size){
     }
 }
 
-// void printArray(int arr[] ,int* size){
-//         for(int i=0;i<(*size);i++){
-//             printf("%d ", arr[i]);
-    
-//     }
-// }
-//  int  insert(int arr[] ,int  *size, int index , int element){
-              
-//     int i = *size-1;
-//     if(index>=*size){
-//         printf("can't be inserted at this index");
 
-//     }
-//     else {
-//         // size++;
-//         // printf("%d",size);
-//         while(i>index){
-//             arr[i] = arr[i-1];
-//             i--;
-//         }
-//     arr[index] = element;
-//     return *(size)+1;
-//     }
-// }
 
 void printArray(int arr[], int *size){
     for(int i=0;i<(*size);i++){
         printf("%d ",arr[i]);
     }
 }
-// int increaseSize(int arr[] , int *length){
-//   return  ( *length ) ++;
-// }
 
 int insert(int arr [], int * size, int index, int element){
     int i= (*size);
@@ -83,7 +57,7 @@ int main(){
     printf("enter the size of array\n");
     scanf("%d",&length);
     printf("\n");
-    printf("%d\n",length);
+    // printf("%d\n",length);
     inputArray(arr, length);
 printArray(arr,&length);
 

@@ -7,7 +7,7 @@ typedef struct node
     int data;
     struct node *next;
 } node_type;
-void addNode(node_type **left, node_type **right)
+void addNode(node_type **head)
 {
     node_type *p;
     p = (node_type *)malloc(sizeof(node_type));
@@ -16,18 +16,21 @@ void addNode(node_type **left, node_type **right)
         printf("Enter the data\n");
         scanf("%d", &p->data);
         p->next = NULL;
-        if ((*right) == NULL )
+        if ((*head) == NULL )
         {
-            (*left) = p;
-            (*right) = p;
-            (*left)->prev = NULL;
+            (*head) = p;
+           
+            (*head)->prev = NULL;
         }
         else
         {
-
-            (*right)->next = p;
-            p->prev = (*right);
-            (*right) = p;
+            node_type *temp = (*head);
+            while(temp->next!=NULL){
+                temp = temp->next;
+            }
+                p->prev= temp;
+                temp->next= p;
+                temp = p;
         }
     }
     else
@@ -57,9 +60,9 @@ void rightToLeft(node_type *right)
 }
 int main()
 {
-    node_type *left;
-    node_type *right;
-    right = left = NULL;
+    node_type *head;
+    
+    head = NULL;
     int option;
     do
     {
@@ -71,13 +74,13 @@ int main()
         switch (option)
         {
         case 1:
-            addNode(&left, &right);
+            addNode(&head);
             break;
         case 2:
-            leftToRight(left);
+            leftToRight(head);
             break;
         case 3:
-            rightToLeft(right);
+            rightToLeft(head);
 
             break;
         case 4:

@@ -46,6 +46,7 @@ void display(int arr[], int *front , int *rear){
     printf("\n");
 
 }
+
 int main(){
 
     int arr[size];
@@ -70,12 +71,14 @@ case 1:
     
     break;
 case 2:
-        // insert(arr,&front , &rear);
+        
         delete(arr, &front , &rear);
     
     break;
 case 3:
             display(arr, &front , &rear);
+            
+
      
     
     break;
